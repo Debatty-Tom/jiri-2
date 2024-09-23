@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JiriStoreRequest;
 use App\Models\Jiri;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class JiriController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
         return view('jiri.create');
     }
@@ -33,22 +34,17 @@ class JiriController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(JiriStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string|between:3,255',
-            'starting_at' => 'required|date_format:Y-m-d H:i',
-        ]);
+        $jiri = Jiri::create($request->validated());
 
-        $jiri = Jiri::create($validated);
-
-        return redirect()->route('jiri.show',$jiri->id);
+        return to_route('jiri.show',$jiri->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Jiri $jiri)
+    public function show(Jiri $jiri): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
         return view('jiri.show', compact('jiri'));
     }
@@ -56,24 +52,28 @@ class JiriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Jiri $jiri)
     {
-        //
+        return view('jiri.edit', compact('jiri'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(JiriStoreRequest $request, Jiri $jiri)
     {
-        //
+        $jiri->update($request->all());
+
+        return to_route('jiri.show', $jiri);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Jiri $jiri)
     {
-        //
+        $jiri->delete();
+
+        return to_route('jiri.index');
     }
 }

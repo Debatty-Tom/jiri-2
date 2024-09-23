@@ -1,0 +1,75 @@
+{
+    "jiri create page" : "",
+
+        "Create this new Jiri" : "Créez ce nouveau Jiri",
+        "starting at" : "Date et heure de début du jiri,",
+        "at format" : "au format Y-m-d H:i,",
+        "Jiri name" : "Nom du jiri",
+        "at least 3 caracter and max 255" : "au moins 3 caractères, au plus 255",
+        "Create a Jiri" : "créer un Jiri",
+
+    "jiri index page" : "",
+
+        "Create a new Jiri" : "Créer un nouveau jiri",
+        "Past Jiris" : "Jiri passés",
+        "Upcoming Jiris" : "Jiri à venir",
+        "Your Jiris" : "Vos Jiris",
+
+    "jiri edit page" : "",
+
+        "Modify" : "Modifier",
+        "Save changes" : "Sauvegarder les changements",
+
+    "Jiri show page" : "",
+
+        "Delete this Jiri" : "Supprimer ce Jiri",
+        "Modify this Jiri" : "Modifier ce Jiri",
+
+
+
+    "contact index page" : "",
+
+        "Your Contacts" : "Vos contacts",
+        "Create a new contact" : "Créer un nouveau contact",
+
+    "contact edit page" : "",
+
+
+
+    "contact create page" : "",
+
+        "Create this new Contact" : "Créer ce nouveau contact",
+        "Contact first name" : "Prénon du contact",
+        "Contact last name" : "Nom du contact",
+        "Email" : "Adresse email",
+        "must be valid. that will allow to invite" : "doit être valide. Elle permettra de l’inviter.",
+
+    "contact show page" : "",
+
+        "Modify this Contact" : "Modifier ce contact",
+        "Delete this contact" : "Supprimer ce contact",
+        "Contact email" : "Email de contact",
+
+
+    "project edit page" : "",
+
+
+
+    "project create page" : "",
+
+        "Create a project" : "Créer un projet",
+        "Project name" : "Nom du projet",
+        "Enter a description" : "Entrez une description",
+        "Create this new project" : "Créer ce nouveau projet",
+
+    "project index page" : "",
+
+        "Your projects" : "Vos projets",
+        "Create a new project" : "Créer un nouveau projet",
+
+    "project show page" : "",
+
+        "Project description" : "Description du projet",
+        "Delete this project" : "Supprimer ce projet",
+        "Modify this project" : "Modifier ce projet"
+}

@@ -1,14 +1,14 @@
 <x-layouts.main>
-    <h1 class="font-bold text-2xl">Your Jiris</h1>
+    <h1 class="font-bold text-2xl">{{ __("Your Jiris") }}</h1>
     <section>
-        <h2 class="font-bold">Upcoming Jiris</h2>
+        <h2 class="font-bold">{{ __("Upcoming Jiris") }}</h2>
         <x-jiris.list :jiris="$upcomingJiris"/>
     </section>
     <section>
-        <h2 class="font-bold">Past Jiris</h2>
+        <h2 class="font-bold">{{ __("Past Jiris") }}</h2>
         <x-jiris.list :jiris="$pastJiris"/>
     </section>
     <a class="underline text-blue-500 flex items-center gap-2"
-       href="/jiris/create" >Créer un nouveau jiri</a>
+       href="/jiris/create" >{{ __("Create a new Jiri") }}</a>
 </x-layouts.main>
 

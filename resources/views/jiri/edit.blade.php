@@ -1,8 +1,9 @@
 <x-layouts.main>
-    <h1 class="font-bold text-2xl">{{ __("Create a Jiri") }}</h1>
-    <form action="/jiris"
+    <h1 class="font-bold text-2xl">{{ __("Modify") }} {{ $jiri->name }}</h1>
+    <form action="/jiris/{{ $jiri->id }}"
           method="post"
-          class="flex flex-col gap-8 bg-slate-50 p-4">
+          class="flex flex-col gap-6 bg-slate-50 rounded p-4">
+        @method('patch')
         @csrf
         <div class="flex flex-col gap-2">
             <label for="name"
@@ -13,7 +14,7 @@
             </label>
             <input id="name"
                    type="text"
-                   value="{{ old('name') }}"
+                   value="{{ $jiri->name }}"
                    name="name"
                    placeholder='Mon examen de première session'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
@@ -28,13 +29,15 @@
             </label>
             <input id="starting_at"
                    type="text"
-                   value="{{ old('starting_at') }}"
+                   value="{{ $jiri->starting_at }}"
                    name="starting_at"
                    placeholder="{{ $now }}"
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
         </div>
-        <button type="submit"
-                class="bg-blue-500 font-bold text-white rounded-md p-2 px-4 tracking-wider uppercase">{{ __("Create this new Jiri") }}</button>
-    </form>
+        <div class="flex gap-5">
+            <button type="submit"
+                    class="bg-blue-500 font-bold text-white rounded-md p-2 px-4 tracking-wider uppercase">{{ __("Save changes") }}</button>
 
+        </div>
+    </form>
 </x-layouts.main>
