@@ -6,10 +6,14 @@
         @csrf
         <div class="flex flex-col gap-2">
             <label for="name"
-                   class="font-bold">Nom du jiri<span class="block font-normal">au moins 3 caractères, au plus 255</span></label>
+                   class="font-bold">Nom du jiri<span class="block font-normal">au moins 3 caractères, au plus 255</span>
+                @error('name')
+                <span class="block text-red-500">{{ $message }}</span>
+                @enderror
+            </label>
             <input id="name"
                    type="text"
-                   value=" "
+                   value="{{ old('name') }}"
                    name="name"
                    placeholder='Mon examen de première session'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
@@ -17,10 +21,14 @@
         @php($now = now()->format('Y-m-d H:i'))
         <div class="flex flex-col gap-2">
             <label for="starting_at"
-                   class="font-bold">Date et heure de début du jiri<span class="block font-normal">au format Y-m-d H:i</span></label>
+                   class="font-bold">Date et heure de début du jiri<span class="block font-normal">au format Y-m-d H:i</span>
+                @error('starting_at')
+                <span class="block text-red-500">{{ $message }}</span>
+                @enderror
+            </label>
             <input id="starting_at"
                    type="text"
-                   value=" "
+                   value="{{ old('starting_at') }}"
                    name="starting_at"
                    placeholder="{{ $now }}"
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
