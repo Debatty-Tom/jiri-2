@@ -1,5 +1,5 @@
 <x-layouts.main>
-    <h1 class="font-bold text-2xl">{{ $contact->firstname }} {{ $contact->lastname }}</h1>
+    <h1 class="font-bold text-2xl">{{ $contact->full_name }}</h1>
     <dl class="flex flex-col gap-4 bg-slate-50 p-4">
         <div>
             <dt class="font-bold">{{ __("Contact email") }}</dt>

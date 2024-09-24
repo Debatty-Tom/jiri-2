@@ -14,7 +14,7 @@
             </label>
             <input id="name"
                    type="text"
-                   value="{{ $jiri->name }}"
+                   value="{{ old('name', $jiri) }}"
                    name="name"
                    placeholder='Mon examen de première session'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
@@ -29,7 +29,7 @@
             </label>
             <input id="starting_at"
                    type="text"
-                   value="{{ $jiri->starting_at }}"
+                   value="{{ old('starting_at', $jiri->starting_at->format('Y-m-d H:i')) }}"
                    name="starting_at"
                    placeholder="{{ $now }}"
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">

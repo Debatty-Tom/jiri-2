@@ -1,5 +1,5 @@
 <x-layouts.main>
-    <h1 class="font-bold text-2xl">{{ __("Modify") }} {{ $contact->name }}</h1>
+    <h1 class="font-bold text-2xl">{{ __("Modify") }} {{ $contact->full_name }}</h1>
     <form action="/contacts/{{ $contact->id }}"
           method="post"
           class="flex flex-col gap-6 bg-slate-50 rounded p-4">
@@ -14,7 +14,7 @@
             </label>
             <input id="firstname"
                    type="text"
-                   value="{{ $contact->firstname }}"
+                   value="{{ old('firstname',$contact) }}"
                    name="firstname"
                    placeholder='Richard'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
@@ -28,7 +28,7 @@
             </label>
             <input id="lastname"
                    type="text"
-                   value="{{ $contact->lastname }}"
+                   value="{{ old('lastname',$contact) }}"
                    name="lastname"
                    placeholder='Durgan'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
@@ -42,7 +42,7 @@
             </label>
             <input id="email"
                    type="text"
-                   value="{{ $contact->email }}"
+                   value="{{ old('email',$contact) }}"
                    name="email"
                    placeholder='burt.jacobs@yahoo.com'
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">

@@ -1,5 +1,5 @@
 <x-layouts.main>
-    <h1 class="font-bold text-2xl">{{ __("Create a Jiri") }}</h1>
+    <h1 class="font-bold text-2xl">{{ __("Create a contact") }}</h1>
     <form action="/contacts"
           method="post"
           class="flex flex-col gap-8 bg-slate-50 p-4">

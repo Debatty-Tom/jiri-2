@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,13 +10,12 @@ class Contact extends Model
 {
 
     use HasFactory;
-    public string $fullname;
-//    protected function casts()
-//    {
-//        return[
-//            $this->fullname => $this->firstname.' '.$this->lastname
-//        ];
-//    }
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) => $attributes['firstname'].' '.$attributes['lastname']);
+            }
+
     protected $fillable = [
         'firstname',
         'lastname',
