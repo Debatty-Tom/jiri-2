@@ -6,17 +6,15 @@
             <dd>{{ $contact->email }}</dd>
         </div>
     </dl>
-    <div class="flex gap-5">
-        <a class="bg-blue-500 font-bold text-white rounded-md p-2 px-4 tracking-wider uppercase" href="/contacts/{{ $contact->id }}/edit">{{ __("Modify this Contact") }}</a>
-        <form action="/contacts/{{ $contact->id }}"
-              method="post">
-            @method('delete')
-            @csrf
-            <input type="hidden"
-                   name="id"
-                   value="">
-            <button type="submit"
-                    class="bg-red-500 font-bold text-white rounded-md p-2 px-4 uppercase tracking-wider">{{ __("Delete this contact") }}</button>
-        </form>
-    </div>
+    <x-controls.edit-div>
+        <x-slot:path>
+            {{ "/contacts/$contact->id" }}
+        </x-slot:path>
+        <x-slot:delete>
+            {{ __("Delete this contact") }}
+        </x-slot:delete>
+        <x-slot:edit>
+            {{ __("Modify this Contact") }}
+        </x-slot:edit>
+    </x-controls.edit-div>
 </x-layouts.main>

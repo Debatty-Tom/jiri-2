@@ -33,8 +33,9 @@
                    placeholder="{{ $now }}"
                    class="border border-grey-700 focus:invalid:border-pink-500 invalid:text-pink-600 rounded-md p-2">
         </div>
-        <button type="submit"
-                class="bg-blue-500 font-bold text-white rounded-md p-2 px-4 tracking-wider uppercase">{{ __("Create this new Jiri") }}</button>
+        <x-controls.button-blue>
+            {{ __("Create this new Jiri") }}
+        </x-controls.button-blue>
     </form>
 
 </x-layouts.main>
