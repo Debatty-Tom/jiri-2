@@ -12,7 +12,7 @@ class Jiri extends Model
     protected function casts()
     {
         return[
-            'starting_at' => 'datetime'
+            'starting_at' => 'date:Y-m-d H:i',
         ];
     }
 

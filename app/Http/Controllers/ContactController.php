@@ -33,7 +33,7 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->validated());
 
-        return to_route('contact.show', $contact->id);
+        return to_route('contacts.show', $contact->id);
     }
 
     /**
@@ -59,7 +59,7 @@ class ContactController extends Controller
     {
         $contact->update($request->all());
 
-        return to_route('contact.show', $contact);
+        return to_route('contacts.show', $contact);
     }
 
     /**
@@ -69,6 +69,6 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return to_route('contact.index');
+        return to_route('contacts.index');
     }
 }

@@ -33,7 +33,7 @@ class ProjectController extends Controller
     {
         $project = Project::create($request->validated());
 
-        return to_route('project.show', $project->id);
+        return to_route('projects.show', $project->id);
     }
 
     /**
@@ -59,7 +59,7 @@ class ProjectController extends Controller
     {
         $project->update($request->all());
 
-        return to_route('project.show', $project);
+        return to_route('projects.show', $project);
     }
 
     /**
@@ -69,6 +69,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return to_route('project.index');
+        return to_route('projects.index');
     }
 }

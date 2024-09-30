@@ -38,7 +38,7 @@ class JiriController extends Controller
     {
         $jiri = Jiri::create($request->validated());
 
-        return to_route('jiri.show',$jiri->id);
+        return to_route('jiris.show',$jiri->id);
     }
 
     /**
@@ -64,7 +64,7 @@ class JiriController extends Controller
     {
         $jiri->update($request->all());
 
-        return to_route('jiri.show', $jiri);
+        return to_route('jiris.show', $jiri);
     }
 
     /**
@@ -74,6 +74,6 @@ class JiriController extends Controller
     {
         $jiri->delete();
 
-        return to_route('jiri.index');
+        return to_route('jiris.index');
     }
 }
