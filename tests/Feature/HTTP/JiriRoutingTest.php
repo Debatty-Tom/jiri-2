@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Contact;
 use App\Models\Jiri;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\get;
@@ -20,8 +21,6 @@ it('routes with model binding the request to a page that shows a specific jiri a
 });
 
 it('routes the request to a page that displays a form to create a jiri', function () {
-
-
     $response = get(route('jiris.create'));
 
     $response->assertStatus(200);
@@ -38,4 +37,38 @@ it('routes the request to a save in database action when providing datas describ
     $response->assertStatus(302);
 
     assertDatabaseHas('jiris', $jiri_data);
+});
+
+it('routes the request to an index of contact', function () {
+    $response = get(route('contacts.index'));
+
+    $response->assertStatus(200);
+});
+
+it('routes with model binding the request to a page that shows a specific contact according ti its id', function () {
+    $contact = Contact::factory()->create();
+
+    $response = get(route('contacts.show', compact('contact')));
+
+    $response->assertStatus(200);
+});
+
+it('routes the request to a page that displays a form to create a contact', function () {
+    $response = get(route('contacts.create'));
+
+    $response->assertStatus(200);
+});
+
+it('routes the request to a save in database action when providing datas describing a contact', function () {
+    $contact_data = [
+        'firstname' => 'tom',
+        'lastname' => 'debatty',
+        'email' => 'tom.debatty@hotmail.be',
+    ];
+
+    $response = post(route('contacts.store'), $contact_data);
+
+    $response->assertStatus(302);
+
+    assertDatabaseHas('contacts', $contact_data);
 });
