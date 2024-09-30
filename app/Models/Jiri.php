@@ -20,5 +20,10 @@ class Jiri extends Model
         'name',
         'starting_at',
         ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\JiriStoreRequest;
 use App\Models\Jiri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JiriController extends Controller
 {
@@ -13,11 +14,11 @@ class JiriController extends Controller
      */
     public function index()
     {
-        $upcomingJiris = Jiri::where('starting_at','>',now())
-            ->orderBy('starting_at', 'asc')
+        $upcomingJiris = Auth::user()
+            ->pastJiris()
             ->get();
-        $pastJiris = Jiri::where('starting_at','<',now())
-            ->orderBy('starting_at', 'desc')
+        $pastJiris = Auth::user()
+            ->upcomingJiris()
             ->get();
 
         return view('jiri.index', compact('upcomingJiris', 'pastJiris'));

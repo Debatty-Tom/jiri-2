@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email')->unique();
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
         });
     }
 
